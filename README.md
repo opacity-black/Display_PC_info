@@ -29,12 +29,3 @@ SCK|IO2
 LED|3V3
 SDO(MISO)|悬空
 
-<<<<<<< HEAD
-=======
-
-# 简介
-主要是基于Arduino移植LVGL到ESP32，做了一个显示实时信息的界面
-有空把各种传感器驱动代码做一下
-
-电脑上要在插入设备前运行test/SerialServer.py才会有显示
->>>>>>> 2d61f4fba4b35ecbe2a0f2cfbe8eda607cbed868
