@@ -1,0 +1,35 @@
+body{
+    background: rgb(0, 0, 0);
+
+}
+.dev{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 10%;
+    margin: 0 auto;
+    background-color: rgb(210, 213, 216);
+    border: solid 1px gray;
+    width: 340px;
+    height: 480px;
+}
+.dev button{
+    border-radius: 8px;
+    border: 1px gray;
+    background-color: beige;
+    box-shadow: 3px,3px,rgb(102, 100, 100);
+    position: absolute;
+}
+.dev #screen{
+    border-radius: 5px;
+    border: inset 1px black;
+    background-color: rgb(77, 77, 77);
+    position: absolute;
+    z-index: 999;
+    width: 320px;
+    height: 240px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top:10%;
+}
