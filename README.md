@@ -1,4 +1,11 @@
-[TOC]
+
+# 简介
+![超星网盘](https://p.ananas.chaoxing.com/star3/origin/8181a01e401836666e60fd54dd527ecd.png)
+主要是基于Arduino移植LVGL到ESP32，做了一个显示实时信息的界面
+有空把各种传感器驱动代码做一下
+
+电脑上要在插入设备前运行test/SerialServer.py才会有显示
+
 
 # 开发环境
 platformio + esp32-cam
@@ -21,9 +28,3 @@ SCK|IO2
 LED|3V3
 SDO(MISO)|悬空
 
-
-# 简介
-主要是基于Arduino移植LVGL到ESP32，做了一个显示实时信息的界面
-有空把各种传感器驱动代码做一下
-
-电脑上要在插入设备前运行test/SerialServer.py才会有显示
