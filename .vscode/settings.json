@@ -8,7 +8,8 @@
     "lv_gc.h": "c",
     "lv_ll.h": "c",
     "lv_timer.h": "c",
-    "lv_hal_tick.h": "c"
+    "lv_hal_tick.h": "c",
+    "typeinfo": "cpp"
   },
   "C_Cpp_Runner.cCompilerPath": "gcc",
   "C_Cpp_Runner.cppCompilerPath": "D:/MinGW/bin/g++.exe",

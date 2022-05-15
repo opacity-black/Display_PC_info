@@ -14,6 +14,7 @@ static void set_value(void *bar, int32_t v)
     lv_bar_set_value((lv_obj_t *)bar, v, LV_ANIM_OFF);
 }
 
+
 void lv_start(int value, const char *text)
 {
     static Bar m_bar(200, 20);
@@ -43,16 +44,9 @@ void lv_start(int value, const char *text)
     lv_timer_handler(); /* let the GUI do its work */
 }
 
-// void cpu_display()
-// {
-//     static Panel cpu_panel(50,50);
-//     static Bar cpu1(10,50,"cpu1",cpu_panel.panel);
-// }
-
 
 void lv_menu(void)
 {
-    // lv_obj_add_style(lv_scr_act(),&style_simple_black, LV_STATE_DEFAULT);
 
     //初始化通知栏
     sBar.init();
@@ -66,11 +60,10 @@ void lv_menu(void)
     noteInfo.print("Waitting...");
 
     //加载定时器
-    // lv_timer_t *timer = lv_timer_create(showTime, 1000, sBar.time_lbl);
     lv_timer_t *t = lv_timer_create(updateinfo, 500, NULL);
 }
 
-//要求是label对象
+//要求是label对象【弃用】
 void showTime(lv_timer_t *timer)
 {
     struct tm timeinfo;
@@ -88,20 +81,20 @@ void updateinfo(lv_timer_t *timer)
         i=0;
         deserializeJson(doc, res);
         JsonObject obj = doc.as<JsonObject>();
+        sBar.setTime(obj[F("time")]);
         gpu.setvalue( obj[F("GPU")] );
         cpu.setvalue( obj[F("CPU")] );
         ram.setvalue( obj[F("RAM")] );
         noteInfo.print( (const char *)obj[F("Text")] );
-        lv_label_set_text(sBar.time_lbl, obj[F("time")]);
-        if(!sBar.getState(_WIFI_S_CON))
-            sBar.updateState(_WIFI_S_CON);
+        if(!sBar.getState(STATEBAR_SERIAL_CON))
+            sBar.updateState(STATEBAR_SERIAL_CON);
             sBar.setState();
     }else{
         i++;
         if(i>4)
         {
             i=0;
-            sBar.updateState(_WIFI_S_DCON);
+            sBar.updateState(STATEBAR_SERIAL_DCON);
             sBar.setState();
         }
     }

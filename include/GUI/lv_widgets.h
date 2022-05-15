@@ -62,35 +62,67 @@ class Special_Arc
 
 //状态
 enum {
-    _WIFI_S_ON,
-    _WIFI_S_OFF,
+    STATEBAR_WIFI_ON,
+    STATEBAR_WIFI_OFF,
 
-    _WIFI_S_CON,
-    _WIFI_S_DCON,
+    STATEBAR_SERIAL_CON,
+    STATEBAR_SERIAL_DCON,
 
-    _SERIAL_S_ON,
-    _SERIAL_S_OFF,
+    STATEBAR_SERIAL_ON,
+    STATEBAR_SERIAL_OFF,
 };
 //状态栏
 class StateBar
 {
-    public:
-        StateBar();
-        ~StateBar();
+    private:
         lv_obj_t * panel;
         lv_obj_t * time_lbl;
         lv_obj_t * state_lbl;
-        //在lvgl初始化完成之前不可以调用init()
+        //状态列表，默认全部关闭
+        int slist[3] = {STATEBAR_WIFI_OFF,STATEBAR_SERIAL_DCON,STATEBAR_SERIAL_OFF};
+    public:
+        StateBar();
+        ~StateBar();
+
+        //所有需要创建object的语句都要在lvgl初始化完成之后，该函数也是
         void init();
-        //不涉及显示，可随时调用
+
+
+        /*
+         * [brief]  更新通知栏状态
+         * 
+         * [note]   该函数不涉及显示！只改变存储状态的数组，可在任何时刻调用
+         * 
+         * [in]     state - 新状态
+         */
         void updateState(int state);
-        //在init()之前不可以调用setState()
+
+
+        /*
+         * [brief]  更新通知栏显示
+         * 
+         * [note]   在init()之前不可以调用setState!!!
+         */
         void setState();
-        //验证通知栏状态
+        
+
+        /*
+         * [brief]  设置时间
+         * 
+         * [note]   还没写完。。。
+         */
+        void setTime(const char * t);
+
+        /*
+         * [brief]  验证通知栏状态
+         * 
+         * [note]   该函数不涉及显示，可随时调用
+         * 
+         * [in]     state - 欲验证的状态
+         * 
+         * [out]    真，state有效，否则无效
+         */
         bool getState(int state);
-    private:
-        //状态列表
-        int slist[3] = {_WIFI_S_OFF,_WIFI_S_DCON,_SERIAL_S_OFF};
 };
 
 

@@ -10,7 +10,7 @@ const uint16_t screenWidth  = 320;
 void my_init_lvgl();
 //屏幕刷新函数
 void my_disp_flush(lv_disp_drv_t * disp, const lv_area_t * area, lv_color_t * color_p);
-
+//创建自定义的lvgl样式
 void createLvStyle();
 
 #endif

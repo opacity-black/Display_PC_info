@@ -142,13 +142,13 @@ void StateBar::setState()
     {
         switch (this->slist[i])
         {
-        case _WIFI_S_ON:
+        case STATEBAR_WIFI_ON:
             state+=LV_SYMBOL_WIFI;
             break;
-        case _WIFI_S_CON:
+        case STATEBAR_SERIAL_CON:
             state+=LV_SYMBOL_OK;
             break;
-        case _SERIAL_S_ON:
+        case STATEBAR_SERIAL_ON:
             state+=LV_SYMBOL_USB;
             break;
         }
@@ -156,10 +156,17 @@ void StateBar::setState()
     lv_label_set_text(this->state_lbl, state.c_str());
 }
 
+void StateBar::setTime(const char * t)
+{
+    lv_label_set_text(this->time_lbl, t);
+}
+
 void StateBar::updateState(int state)
 {
     this->slist[state/2]=state;
 }
+
+
 bool StateBar::getState(int state)
 {
     return (this->slist[state/2]==state) ? true:false;

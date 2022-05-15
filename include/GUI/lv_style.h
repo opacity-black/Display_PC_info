@@ -12,6 +12,5 @@ extern lv_style_t Big_text;
 //取消内边距
 extern lv_style_t no_pad;
 
-void createLvStyle();
 
 #endif

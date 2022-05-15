@@ -16,8 +16,6 @@ lv_style_t no_pad;
 
 void createLvStyle()
 {
-    Serial.println("createLvStyle");
-
     lv_style_init(&style_simple_white);
     lv_style_set_bg_color(&style_simple_white, lv_color_white());
     lv_style_set_bg_opa(&style_simple_white, LV_OPA_70);

@@ -5,6 +5,7 @@ import psutil
 import time
 from GPUtil import GPUtil
 
+# 设置开机自启动：https://www.cnblogs.com/Gaohx/p/14870900.html
 # 隐藏窗口
 # import win32api, win32gui
 # ct = win32api.GetConsoleTitle()
@@ -15,7 +16,7 @@ from GPUtil import GPUtil
 # 等待连接 -> PC:json+"\n\r" -> 运行出错（拔出） -> 等待连接 -> ...
 
 class Serial_obj:
-    def __init__(self, port="com5", interval_s=0.5) -> None:
+    def __init__(self, port:str, interval_s=0.5) -> None:
         self.port = port
         self.working = False
         self.interval = interval_s      #数据发送间隔

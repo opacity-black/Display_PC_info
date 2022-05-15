@@ -1,4 +1,5 @@
 #include "web/myWifi.h"
+#include "GUI/myLVGL.h"
 
 String LocalIP = "";
 
@@ -8,17 +9,7 @@ bool initWifi(const char *ssid, const char *password)
   Serial.println("ssid: " + (String)ssid);
   Serial.println("password: " + (String)password);
 
-  WiFi.begin(ssid, password);
-  delay(200);
-
-  long int StartTime = millis();
-  while (WiFi.status() != WL_CONNECTED)
-  {
-    if ((StartTime + 10000) < millis())
-      return false;
-    delay(200);
-  }
-  if (WiFi.status() == WL_CONNECTED)
+  if (connectWifi(ssid, password))
   {
     Serial.println("");
     Serial.println("WiFi connected");
@@ -53,6 +44,11 @@ void setClock()
 }
 
 
+// void sleep_ms(int t)
+// {
+//   long int StartTime = millis();
+//   while((StartTime + t) > millis());
+// }
 bool connectWifi(const char *ssid, const char *password, int timeout_ms)
 {
 
