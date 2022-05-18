@@ -1,4 +1,4 @@
-#include "GUI/lv_style.h"
+#include "lv_style.h"
 #include "Arduino.h"
 
 //白底黑字，无透明度，黑框

@@ -1,7 +1,7 @@
 // lvgl组件库
 #include <Arduino.h>
-#include "GUI/lv_style.h"
-#include "GUI/lv_widgets.h"
+#include "lv_style.h"
+#include "lv_widgets.h"
 
 /*
  * 自定义按钮

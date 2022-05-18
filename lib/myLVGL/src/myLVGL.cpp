@@ -1,4 +1,4 @@
-#include "GUI/myLVGL.h"
+#include "myLVGL.h"
 #include "Arduino.h"
 #include "ArduinoJson.h"
 

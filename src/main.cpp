@@ -2,7 +2,7 @@
 #include <Wire.h>
 //我的接口
 #include "MyApi.h"
-#include "GUI/myLVGL.h"
+#include "myLVGL.h"
 // other
 #include "soc/soc.h"
 #include "soc/rtc_cntl_reg.h"
@@ -24,35 +24,32 @@ void setup()
   sBar.updateState(STATEBAR_SERIAL_ON);
 
   // wifi
-  lv_start(20, "WiFi initial ...");
-  sBar.updateState(STATEBAR_WIFI_ON);
-  if (initWifi() != WIFI_OK)
-  {
-    lv_start(45, "WiFi failed, open AP...");
-    sBar.updateState(STATEBAR_WIFI_OFF);
-  }
+  // note:不知道为什么wifi在lvgl初始化后打开，屏幕就会白屏，希望有懂得大佬指导
+  // 如果你也出现了这个问题，不妨试试让wifi移到lvgl初始化之前打开
+  // lv_start(20, "WiFi initial ...");
+  // sBar.updateState(STATEBAR_WIFI_ON);
+  // if (initWifi() != WIFI_OK)
+  // {
+  //   lv_start(45, "WiFi failed, open AP...");
+  //   sBar.updateState(STATEBAR_WIFI_OFF);
+  // }
 
 
-  //时间
+  //获取网络时间
   if(WiFi.status()==WL_CONNECTED)
   {
     lv_start(70, "Get time ...");
     setClock();
   }
 
-  // ledcSetup(7, 5000, 8);
-  // ledcAttachPin(4, 7); // pin4 is LED
 
-  // startHttpServer();
-  // Serial.println("HttpServer initial success...");
-
-  //加载菜单
+  //加载界面
   lv_start(LV_START_END);
   lv_menu();
 }
 
 void loop()
 {
-  lv_timer_handler(); /* let the GUI do its work */
+  lv_timer_handler();
   delay(5);
 }

@@ -1,5 +1,4 @@
 #include "web/myWifi.h"
-#include "GUI/myLVGL.h"
 
 String LocalIP = "";
 
@@ -49,6 +48,7 @@ void setClock()
 //   long int StartTime = millis();
 //   while((StartTime + t) > millis());
 // }
+
 bool connectWifi(const char *ssid, const char *password, int timeout_ms)
 {
 

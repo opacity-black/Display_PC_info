@@ -1,4 +1,4 @@
-// ../include/MyApi.h       所有的API接口
+// 还没写。。。占个位置
 #ifndef _H_MYAPI
 #define _H_MYAPI
 

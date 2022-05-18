@@ -1,6 +1,6 @@
 //lvgl初始化
 #include <TFT_eSPI.h>
-#include "GUI/lv_basic.h"
+#include "lv_basic.h"
 
 
 static TFT_eSPI tft = TFT_eSPI(screenWidth, screenHeight); /* TFT instance */
